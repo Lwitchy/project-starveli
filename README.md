@@ -19,7 +19,7 @@ The workspace is broken down into three main servers:
   Found in the `Battle` folder, this handles the actual gameplay. It runs a dedicated UDP loop to process game ticks, vector math, entity tracking, and client inputs. The game logic relies on a custom CSV parser to read stats and map data directly from the game's original files. Keep in mind the battle server is super experimental and currently only walking works; I just did that to learn some things.
 
 * **Asset Server (HTTP 2000)**
-  Found in the `Asset Server` folder. This is a simple Express server that hosts files from the `custom_assets` folder, allowing for on-the-fly client patching and modding.
+  Found in the `Asset Server` folder. This is a simple Express server that hosts files from the `custom_assets` folder, allowing for the client to access these. (Can be used for notifications)
 
 ## Under the Hood
 
