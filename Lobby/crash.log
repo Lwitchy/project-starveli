@@ -1,0 +1,42 @@
+04-06 01:38:42.561  1442  1461 E HeatmapThread: ECT Thread time in milliseconds: 1775428722
+04-06 01:38:42.562  1442  1461 E HeatmapThread: !@Could not open '/efs/FactoryApp/bsoh', errno = 13
+04-06 01:38:42.562  1442  1461 E HeatmapThread: !@ CAM Could not access BSOH EFS
+04-06 01:38:42.562  1442  1461 E HeatmapThread: !@ CAM New BSOH: 0
+04-06 01:38:43.099 32146 32249 F libc    : Fatal signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x0 in tid 32249 (Thread-9), pid 32146 (.starveli.brawl)
+04-06 01:38:43.487   622   622 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+04-06 01:38:43.487   622   622 F DEBUG   : Build fingerprint: 'samsung/r9q2xxx/r9q:16/BP2A.250605.031.A3/G990B2XXSHIZA1:user/release-keys'
+04-06 01:38:43.487   622   622 F DEBUG   : Revision: '14'
+04-06 01:38:43.487   622   622 F DEBUG   : ABI: 'arm'
+04-06 01:38:43.487   622   622 F DEBUG   : Processor: '6'
+04-06 01:38:43.487   622   622 F DEBUG   : Timestamp: 2026-04-06 01:38:43.173776195+0300
+04-06 01:38:43.487   622   622 F DEBUG   : Process uptime: 13s
+04-06 01:38:43.487   622   622 F DEBUG   : Cmdline: com.starveli.brawl
+04-06 01:38:43.487   622   622 F DEBUG   : pid: 32146, tid: 32249, name: Thread-9  >>> com.starveli.brawl <<<
+04-06 01:38:43.487   622   622 F DEBUG   : uid: 10392
+04-06 01:38:43.487   622   622 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0x00000000
+04-06 01:38:43.487   622   622 F DEBUG   : Cause: null pointer dereference
+04-06 01:38:43.487   622   622 F DEBUG   :     r0  e8b68208  r1  00000001  r2  00000000  r3  00000001
+04-06 01:38:43.487   622   622 F DEBUG   :     r4  c2995230  r5  00000001  r6  00000004  r7  ffffffff
+04-06 01:38:43.487   622   622 F DEBUG   :     r8  d117d2b8  r9  ee44aff0  r10 ee44b018  r11 d117d2b0
+04-06 01:38:43.487   622   622 F DEBUG   :     ip  dd819ba8  sp  d117d298  lr  ddd9bf7c  pc  00000000
+04-06 01:38:43.487   622   622 F DEBUG   : 13 total frames
+04-06 01:38:43.487   622   622 F DEBUG   : backtrace:
+04-06 01:38:43.487   622   622 F DEBUG   :       #00 pc 00000000  <unknown>
+04-06 01:38:43.487   622   622 F DEBUG   :       #01 pc 002ccf78  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #02 pc 00269978  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #03 pc 002a900c  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #04 pc 004bdb10  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #05 pc 005e0eec  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #06 pc 00401b50  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #07 pc 0072a650  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #08 pc 00085710  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #09 pc 00473c20  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #10 pc 00694038  /data/app/~~-gowLiJZVkacVdXO-epWcg==/com.starveli.brawl-U98KGXkkN2ULldXzKtaLNg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+04-06 01:38:43.487   622   622 F DEBUG   :       #11 pc 00056963  /apex/com.android.runtime/lib/bionic/libc.so (__pthread_start(void*)+40) (BuildId: 41ede49bf4081215aaa60670b884847f)
+04-06 01:38:43.488   622   622 F DEBUG   :       #12 pc 0004dba7  /apex/com.android.runtime/lib/bionic/libc.so (__start_thread+30) (BuildId: 41ede49bf4081215aaa60670b884847f)
+04-06 01:38:43.516   922   922 E tombstoned: Tombstone written to: tombstone_30
+04-06 01:38:43.561  1687  2607 E InputDispatcher: channel 'a5964a2 com.starveli.brawl/com.supercell.brawlstars.GameApp' ~ Channel is unrecoverably broken and will be disposed!
+04-06 01:38:43.561  1442  1461 E HeatmapThread: ECT Thread time in milliseconds: 1775428723
+04-06 01:38:43.562  1442  1461 E HeatmapThread: !@Could not open '/efs/FactoryApp/bsoh', errno = 13
+04-06 01:38:43.562  1442  1461 E HeatmapThread: !@ CAM Could not access BSOH EFS
+04-06 01:38:43.562  1442  1461 E HeatmapThread: !@ CAM New BSOH: 0

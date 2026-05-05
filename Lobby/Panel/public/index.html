@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wow | Admin Panel</title>
+    <meta name="description" content="Starveli Brawl Stars private server admin panel.">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="Assets/spike_site_icon.png" alt="Logo" style="width:40px;height:40px;margin-right:8px;">
+                <span>Starveli</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="nav-btn active" data-target="offersGrid" id="nav-offers">
+                    <i class="fa-solid fa-store"></i> Global Offers
+                </a>
+                <a href="#" class="nav-btn" data-target="notificationsGrid" id="nav-notify">
+                    <i class="fa-solid fa-bell"></i> Notifications
+                </a>
+                <a href="#" class="nav-btn" data-target="playersGrid" id="nav-players">
+                    <i class="fa-solid fa-users"></i> Players
+                </a>
+                <a href="#" class="nav-btn" data-target="analyticsGrid" id="nav-analytics">
+                    <i class="fa-solid fa-chart-line"></i> Analytics
+                </a>
+            </nav>
+
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-titles">
+                    <h1 id="pageTitle">Global Offers</h1>
+                    <p id="pageSubtitle">Modify offers in the shop rotation.</p>
+                </div>
+                <div class="header-actions">
+                    <button id="addOfferBtn" class="btn btn-primary" style="display:none;">
+                        <i class="fa-solid fa-plus"></i> New Offer
+                    </button>
+                    <button id="removeAllOffersBtn" class="btn btn-warning" style="display:none;">
+                        <i class="fa-solid fa-trash-can"></i> Remove All
+                    </button>
+                    <button class="btn btn-icon theme-toggle" title="Toggle theme">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div id="offersStats" class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fa-solid fa-tags"></i></div>
+                    <div class="stat-info">
+                        <h3>Active Offers</h3>
+                        <p id="totalOffersCount">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon update"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <div class="stat-info">
+                        <h3>Shop Refresh</h3>
+                        <p id="shopRefreshRate">—</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="offers-grid view-section active-view" id="offersGrid">
+                <div class="loading-state">
+                    <div class="spinner"></div>
+                    <p>Loading offers from server...</p>
+                </div>
+            </section>
+
+            <section class="view-section" id="notificationsGrid">
+                <div class="section-wrapper">
+                    <div class="section-card">
+                        <h3><i class="fa-solid fa-bullhorn"></i> Notification Builder</h3>
+                        <p class="sub">Send personalized or global messages to players</p>
+                        <form id="notificationForm">
+                            <div class="form-row" style="margin-bottom:16px;">
+                                <div class="form-group">
+                                    <label>Recipient Type</label>
+                                    <select id="notifTargetType">
+                                        <option value="global">Global — All Players</option>
+                                        <option value="personal">Personal — Specific Player</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="targetLowIdGroup" style="display:none;">
+                                    <label>Target Player Low ID</label>
+                                    <input type="number" id="notifLowId" placeholder="e.g. 1">
+                                </div>
+                            </div>
+                            <div class="form-row" style="margin-bottom:16px;">
+                                <div class="form-group">
+                                    <label>Notification Type</label>
+                                    <select id="notifType">
+                                        <option value="81">81 — Admin / Support Message</option>
+                                        <!--<option value="83">83 — Promo Popup / Banner</option>-->
+                                        <option value="85">85 — Gems Refunded</option>
+                                        <option value="89">89 — Gems Donated</option>
+                                        <!--<option value="92">92 — Brawler Power Points</option>-->
+                                        <!--<option value="93">93 — Brawler Donated</option>-->
+                                        <!--<option value="94">94 — Skin Donated</option>-->
+                                    </select>
+                                </div>
+                                <div class="form-group" id="notifMessageGroup">
+                                    <label>Message Text</label>
+                                    <input type="text" id="notifMessage" placeholder="Enter message...">
+                                </div>
+                            </div>
+                            <!-- Promo (83) -->
+                            <div id="notifPromoFields" style="display:none;" class="notif-fields-block">
+                                <strong><i class="fa-solid fa-image"></i> Promo Details (ID 83)</strong>
+                                <input type="text" id="notifPrimary" placeholder="Primary Text" class="form-control">
+                                <input type="text" id="notifSecondary" placeholder="Secondary Text"
+                                    class="form-control">
+                                <input type="text" id="notifButton" placeholder="Button Text" class="form-control">
+                                <input type="text" id="notifBannerFile" placeholder="Banner Image URL/File"
+                                    class="form-control">
+                                <input type="text" id="notifBannerHash" placeholder="Banner Hash" class="form-control">
+                                <input type="text" id="notifEventLink" placeholder="Event URL Link"
+                                    class="form-control">
+                            </div>
+                            <!-- Gems (85/89) -->
+                            <div id="notifGemsFields" style="display:none;" class="notif-fields-block">
+                                <strong><i class="fa-solid fa-gem"></i> Gems Amount</strong>
+                                <input type="number" id="notifGemsAmount" placeholder="Amount" class="form-control">
+                            </div>
+                            <!-- Brawler (92/93) -->
+                            <div id="notifBrawlerFields" style="display:none;" class="notif-fields-block">
+                                <strong><i class="fa-solid fa-star"></i> Brawler Details</strong>
+                                <input type="number" id="notifBrawlerId" placeholder="Brawler ID" class="form-control">
+                                <input type="number" id="notifPowerPoints" placeholder="Power Points (ID 92 only)"
+                                    class="form-control">
+                            </div>
+                            <!-- Skin (94) -->
+                            <div id="notifSkinFields" style="display:none;" class="notif-fields-block">
+                                <strong><i class="fa-solid fa-palette"></i> Skin ID</strong>
+                                <input type="number" id="notifSkinId" placeholder="Skin ID" class="form-control">
+                            </div>
+                            <div style="margin-top:16px;">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa-solid fa-paper-plane"></i> Send Notification
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="view-section" id="playersGrid">
+                <div class="section-wrapper">
+                    <div class="section-card">
+                        <h3><i class="fa-solid fa-database"></i> Player Database</h3>
+                        <p class="sub">Search by Low ID or username</p>
+                        <div class="search-bar">
+                            <input type="text" id="playerSearchInput" placeholder="Search by Low ID or Username...">
+                            <button id="playerSearchBtn" class="btn btn-primary">
+                                <i class="fa-solid fa-magnifying-glass"></i> Search
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Low ID</th>
+                                    <th>Username</th>
+                                    <th><img src="Assets/UI/trophy_icon_small.png" alt="Trophies"
+                                            style="width:16px;vertical-align:middle;margin-top:-2px;"> Trophies</th>
+                                    <th><img src="Assets/UI/gem_icon.png" alt="Gems"
+                                            style="width:18px;vertical-align:middle;margin-top:-2px;"> Gems</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="playersTableBody">
+                                <tr>
+                                    <td colspan="6" style="padding:30px;text-align:center;color:var(--text-secondary);">
+                                        Loading players...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="view-section" id="analyticsGrid">
+                <div class="section-wrapper">
+                    <div class="dashboard-stats" style="padding:0;margin-bottom:20px;">
+                        <div class="stat-card">
+                            <div class="stat-icon"
+                                style="background:rgba(0,201,167,0.12);color:var(--bs-teal);border-color:rgba(0,201,167,0.25);">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Registered</h3>
+                                <p id="analyticsTotalPlayers" style="color:var(--bs-teal);">—</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"
+                                style="background:rgba(66,153,225,0.12);color:var(--bs-blue);border-color:rgba(66,153,225,0.25);">
+                                <i class="fa-solid fa-signal"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Live Online</h3>
+                                <p id="analyticsOnlinePlayers" style="color:var(--bs-blue);">—</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <h3><i class="fa-solid fa-chart-line"></i> Server Overview</h3>
+                        <p class="sub">Real-time statistics from the database and active server</p>
+                        <button class="btn btn-secondary" id="refreshAnalyticsBtn" style="margin-top:12px;">
+                            <i class="fa-solid fa-rotate"></i> Refresh Data
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="addOfferModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Offer</h2>
+                <button class="close-modal" data-modal="addOfferModal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="offerForm" class="modal-body">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Item Type</label>
+                        <select id="offerID">
+                            <option value="0">Loading...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount / Count</label>
+                        <input type="number" id="offerCount" placeholder="1" min="1" value="1" required>
+                    </div>
+                </div>
+
+                <div id="brawlerPickerPanel" style="display:none;">
+                    <div class="form-group" style="margin-bottom:8px;">
+                        <label>Search Brawler</label>
+                        <input type="text" id="brawlerSearch" placeholder="Type brawler name..." autocomplete="off">
+                    </div>
+                    <div id="brawlerGrid"
+                        style="display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:8px;max-height:190px;overflow-y:auto;padding:4px;border:1px solid var(--border-card);border-radius:10px;background:rgba(0,0,0,0.15);">
+                    </div>
+                    <input type="hidden" id="selectedBrawlerDRID" value="0">
+                    <div id="selectedBrawlerDisplay"
+                        style="display:none;margin-top:10px;padding:10px 14px;background:rgba(255,215,0,0.06);border:1px solid rgba(255,215,0,0.25);border-radius:10px;display:flex;align-items:center;gap:14px;">
+                        <img id="selectedBrawlerImg" src="" alt=""
+                            style="width:50px;height:50px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.6));">
+                        <div>
+                            <div style="font-family:'Lilita One',cursive;font-size:16px;color:var(--bs-gold);"
+                                id="selectedBrawlerName">—</div>
+                            <div style="font-size:12px;color:var(--text-secondary);margin-top:2px;">DRID: <span
+                                    id="selectedBrawlerIdText">0</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="skinPickerPanel" style="display:none;">
+                    <div class="form-group" style="margin-bottom:8px;">
+                        <label> Search Skin</label>
+                        <input type="text" id="skinSearch" placeholder="Type skin name..." autocomplete="off">
+                    </div>
+                    <div id="skinListContainer"
+                        style="max-height:190px;overflow-y:auto;border:1px solid var(--border-card);border-radius:10px;background:rgba(0,0,0,0.15);">
+                        <div id="skinList"></div>
+                    </div>
+                    <input type="hidden" id="selectedSkinID" value="0">
+                    <div id="selectedSkinDisplay"
+                        style="display:none;margin-top:10px;padding:10px 14px;background:rgba(255,215,0,0.06);border:1px solid rgba(255,215,0,0.25);border-radius:10px;">
+                        <div style="font-family:'Lilita One',cursive;font-size:16px;color:var(--bs-gold);"
+                            id="selectedSkinName">—</div>
+                        <div style="font-size:12px;color:var(--text-secondary);margin-top:3px;">Skin ID: <span
+                                id="selectedSkinIdText">0</span> · Suggested: <span id="selectedSkinCost">—</span> 💎
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Cost</label>
+                        <input type="number" id="offerCost" placeholder="0" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Currency</label>
+                        <select id="offerType">
+                            <option value="0">Gems</option>
+                            <option value="1">Gold</option>
+                            <option value="3">Starpoints</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Offer Duration</label>
+                    <div class="duration-row">
+                        <div class="form-group" style="min-width:unset;">
+                            <label>Days</label>
+                            <input type="number" id="durationDays" min="0" value="0">
+                        </div>
+                        <div class="form-group" style="min-width:unset;">
+                            <label>Hours</label>
+                            <input type="number" id="durationHours" min="0" max="23" value="0">
+                        </div>
+                        <div class="form-group" style="min-width:unset;">
+                            <label>Minutes</label>
+                            <input type="number" id="durationMinutes" min="0" max="59" value="0">
+                        </div>
+                        <div class="duration-preview" id="durationPreview">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Set duration above</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Offer Text</label>
+                        <input type="text" id="offerText" placeholder="SPECIAL OFFER" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Background Theme</label>
+                        <select id="offerBGR">
+                            <option value="offer_generic">Generic (Default)</option>
+                            <option value="offer_special">Special (Yellow)</option>
+                            <option value="offer_legendary">Legendary</option>
+                            <option value="offer_coins">Coins</option>
+                            <option value="offer_gems">Gems</option>
+                            <option value="offer_boxes">Boxes</option>
+                            <option value="offer_lny">Lunar New Year</option>
+                            <option value="offer_pin_pack">Pin Pack</option>
+                            <option value="offer_chromatic">Chromatic</option>
+                            <option value="offer_archive">Archive Skins</option>
+                            <option value="offer_moon_festival">Moon Festival</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group checkbox-group">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="offerIsDaily">
+                            <span>Is Daily Offer?</span>
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal" data-modal="addOfferModal">Cancel</button>
+                <button type="submit" form="offerForm" class="btn btn-primary">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Offer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="editPlayerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Player <span id="editPlayerIdDisplay"
+                        style="color:var(--text-secondary);font-size:16px;"></span></h2>
+                <button class="close-modal" data-modal="editPlayerModal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="editPlayerForm" class="modal-body">
+                <input type="hidden" id="editPlayerLowId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><img src="Assets/UI/gem_icon.png" alt="Gems"
+                                style="width:16px;vertical-align:middle;margin-top:-2px;"> Gems</label>
+                        <input type="number" id="editPlayerGems" required>
+                    </div>
+                    <div class="form-group">
+                        <label><img src="Assets/UI/coin_icon.png" alt="Gold"
+                                style="width:16px;vertical-align:middle;margin-top:-2px;"> Gold</label>
+                        <input type="number" id="editPlayerCoins" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><img src="Assets/UI/trophy_icon.png" alt="Trophies"
+                                style="width:16px;vertical-align:middle;margin-top:-2px;"> Trophies</label>
+                        <input type="number" id="editPlayerTrophies" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Starpoints</label>
+                        <input type="number" id="editPlayerStarpoints" required>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal" data-modal="editPlayerModal">Cancel</button>
+                <button type="submit" form="editPlayerForm" class="btn btn-primary">
+                    <i class="fa-solid fa-floppy-disk"></i> Save Changes
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

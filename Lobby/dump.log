@@ -1,0 +1,35 @@
+03-12 01:21:39.264 27457 27457 F DEBUG   : *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+03-12 01:21:39.264 27457 27457 F DEBUG   : Build fingerprint: 'samsung/r9q2xxx/r9q:16/BP2A.250605.031.A3/G990B2XXSHIZA1:user/release-keys'
+03-12 01:21:39.264 27457 27457 F DEBUG   : Revision: '14'
+03-12 01:21:39.264 27457 27457 F DEBUG   : ABI: 'arm'
+03-12 01:21:39.264 27457 27457 F DEBUG   : Processor: '6'
+03-12 01:21:39.264 27457 27457 F DEBUG   : Timestamp: 2026-03-12 01:21:38.861393276+0300
+03-12 01:21:39.264 27457 27457 F DEBUG   : Process uptime: 94s
+03-12 01:21:39.264 27457 27457 F DEBUG   : Cmdline: com.starveli.brawl
+03-12 01:21:39.264 27457 27457 F DEBUG   : pid: 26554, tid: 26603, name: Thread-9  >>> com.starveli.brawl <<<
+03-12 01:21:39.264 27457 27457 F DEBUG   : uid: 10385
+03-12 01:21:39.264 27457 27457 F DEBUG   : signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 0xff9523a4
+03-12 01:21:39.264 27457 27457 F DEBUG   :     r0  f06143d0  r1  ff95230c  r2  00000000  r3  00000000
+03-12 01:21:39.264 27457 27457 F DEBUG   :     r4  ffffffff  r5  ff95230c  r6  ffffffff  r7  00000000
+03-12 01:21:39.264 27457 27457 F DEBUG   :     r8  e0564a44  r9  ffffffff  r10 ffffffff  r11 d5c6bbc0
+03-12 01:21:39.264 27457 27457 F DEBUG   :     ip  645c75fe  sp  d5c6bba0  lr  e03aaa54  pc  e0564ab8
+03-12 01:21:39.264 27457 27457 F DEBUG   : 16 total frames
+03-12 01:21:39.264 27457 27457 F DEBUG   : backtrace:
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #00 pc 002a4ab8  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #01 pc 000eaa50  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #02 pc 0038f90c  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #03 pc 004c1860  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #04 pc 00661204  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #05 pc 0027f7ac  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #06 pc 002a8df8  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #07 pc 004bdb10  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #08 pc 005e0eec  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #09 pc 00401b50  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #10 pc 0072a650  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #11 pc 00085710  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #12 pc 00473c20  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #13 pc 00694038  /data/app/~~T40xIOyg0tkwTSHm58hwbg==/com.starveli.brawl-gkRTk3wiANHiC73NnE-hpg==/lib/arm/libg.so (BuildId: ff5f07734cf1728cd7b457b469e2c8cc2a8627c2)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #14 pc 00056963  /apex/com.android.runtime/lib/bionic/libc.so (__pthread_start(void*)+40) (BuildId: 41ede49bf4081215aaa60670b884847f)
+03-12 01:21:39.264 27457 27457 F DEBUG   :       #15 pc 0004dba7  /apex/com.android.runtime/lib/bionic/libc.so (__start_thread+30) (BuildId: 41ede49bf4081215aaa60670b884847f)
+03-12 01:21:39.301   917   917 E tombstoned: Tombstone written to: tombstone_18
+03-12 01:21:39.373  1686  5162 E ActivityManager: Sending non-protected broadcast com.sec.android.intent.action.APP_HQM_SEND_REQ from system 5058:com.sec.android.diagmonagent/1000 pkg com.sec.android.diagmonagent

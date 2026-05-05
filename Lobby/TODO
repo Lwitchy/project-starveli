@@ -1,0 +1,17 @@
+at start events are bounty (default) -  Fixed
+fix ulti crash - Fixed
+shop rotation - Done but needs polishing (The Shop shouldn't suggest PP if the brawler reached 1440PP) 
+alliances
+content creator
+friends
+trophy road - Done
+brawl pass - Done
+inbox - Done
+leaderboard
+battle log
+battle end - Done 
+age screen - Kinda, logic isn't done
+ban
+maintenance
+webadmin
+anticheat shits - Kinda, the server checks SHA of all CSV files (Provided by client weak security can be manipulated)

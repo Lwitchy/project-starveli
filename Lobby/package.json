@@ -1,0 +1,26 @@
+{
+  "name": "lunarbrawl",
+  "version": "0.0.2",
+  "description": "A Private Brawl Stars server written in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "lwitchy",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "crypto": "^1.0.1",
+    "csv": "^6.3.1",
+    "express": "^5.2.1",
+    "extend": "^3.0.2",
+    "fs": "^0.0.1-security",
+    "glob": "^7.2.0",
+    "luxon": "^3.4.4",
+    "minimist": "^1.2.8",
+    "mongoose": "^7.6.7",
+    "net": "^1.0.2"
+  }
+}

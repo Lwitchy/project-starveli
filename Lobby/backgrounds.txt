@@ -1,0 +1,14 @@
+offer_generic - default 
+offer_special - Yellow background
+offer_legendary -
+offer_coins - coin
+offer_gems - gem
+offer_boxes - box
+offer_finals - world finals v30
+offer_lny - v29 best offer bgr
+offer_pin_pack - pin pack
+offer_chromatic - chromatic
+offer_archive - for archive skins
+offer_moon_festival
+
+

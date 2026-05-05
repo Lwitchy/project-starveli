@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Game Assets (Do NOT publish to avoid DMCA / Copyright strikes)
+Lobby/Assets/
+Battle/Assets/
+Asset Server/custom_assets/
+
+# Environment variables
+.env
+
+# OS generated files
+.DS_Store
+Thumbs.db

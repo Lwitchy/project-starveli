@@ -1,0 +1,21 @@
+{
+  "name": "starveli-battle-server",
+  "version": "1.0.0",
+  "description": "Starveli UDP Battle Server (Separate from Lobby)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "battle",
+    "server",
+    "udp",
+    "brawl-stars"
+  ],
+  "author": "lwitchy",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^6.5.1"
+  }
+}
